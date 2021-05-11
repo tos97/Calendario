@@ -16,5 +16,7 @@ public class Main {
                     calendario.giornoAnno(n);
             }
         } while (n != 0);
+        System.out.println("FINE");
     }
 }
+

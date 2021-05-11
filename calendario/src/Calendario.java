@@ -2,10 +2,8 @@ public class Calendario {
 
     private static Calendario istance;
     private int anno;
-    private String[] mesi = {"Gennaio","Febbraio","Marzo","Aprile","Maggio","Giugno","Luglio","Agosto","Settembre","Ottobre","Novembre","Dicembre"};
-    private int[] giorniMesi = {31,28,31,30,31,30,31,31,30,31,30,31};
-    private int[] giorniMesiBise = {31,29,31,30,31,30,31,31,30,31,30,31};
-    private String[] stagioni = {"Inverno","Primavera","Estate","Autunno"};
+    private final int[] giorniMesi = {31,28,31,30,31,30,31,31,30,31,30,31};
+    private final int[] giorniMesiBise = {31,29,31,30,31,30,31,31,30,31,30,31};
 
     private Calendario() {
     }
@@ -39,29 +37,20 @@ public class Calendario {
                 g = g - giorniMesiBise[i];
             }
         }
-        if(i != 12)
-            giornoStagione(i-1);
+        if(g < 0){
+            stampaBene(i);
+        }
         else{
             stampaMale();
         }
     }
 
-    public void giornoStagione(int i){
-        if (mesi[i] == "Gennaio" || mesi[i] == "Febbraio" || mesi[i] == "Dicembre")
-            stampaBene(i, 0);
-        if (mesi[i] == "Marzo" || mesi[i] == "Aprile" || mesi[i] == "Maggio")
-            stampaBene(i, 1);
-        if (mesi[i] == "Giugno" || mesi[i] == "Luglio" || mesi[i] == "Agosto")
-            stampaBene(i, 2);
-        if (mesi[i] == "Settembre" || mesi[i] == "Ottobre" || mesi[i] == "Novembre")
-            stampaBene(i, 3);
-    }
-
-    public void stampaBene(int mese,int stagione){
-        System.out.println("\nMese: " + mesi[mese] + "\nStagione: "+ stagioni[stagione] + "\n");
+    public void stampaBene(int i){
+        Stagioni stagione = Mesi.getStagione(i);
+        System.out.println("\nMese: " + Mesi.getKeyFromValue(i) + "\nStagione: "+ stagione.name() + "\n\n");
     }
 
     public void stampaMale(){
-        System.err.println("I dati inseriti non sono coretti");
+        System.out.println("\nIl giorno è Errato deve essere compreso tra 0 e 365/366");
     }
 }
