@@ -1,3 +1,5 @@
+package Enumerativi;
+
 public enum Stagioni {
     INVERNO,
     PRIMAVERA,

@@ -1,3 +1,6 @@
+import Enumerativi.Mesi;
+import Enumerativi.Stagioni;
+
 public class Calendario {
 
     private static Calendario istance;
@@ -5,8 +8,7 @@ public class Calendario {
     private final int[] giorniMesi = {31,28,31,30,31,30,31,31,30,31,30,31};
     private final int[] giorniMesiBise = {31,29,31,30,31,30,31,31,30,31,30,31};
 
-    private Calendario() {
-    }
+    private Calendario() { }
 
     public static Calendario getIstance(){
         if(istance == null) {
@@ -37,7 +39,7 @@ public class Calendario {
                 g = g - giorniMesiBise[i];
             }
         }
-        if(g < 0){
+        if(g <= 0){
             stampaBene(i);
         }
         else{

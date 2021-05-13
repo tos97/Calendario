@@ -1,3 +1,5 @@
+package Enumerativi;
+
 public enum Mesi {
 
     GENNAIO("Gennaio", 1),
